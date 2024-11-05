@@ -2,9 +2,9 @@
 
 class PdoChoc {
 
-    private static $serveur = 'mysql:host=db'; 
-    private static $bdd = 'dbname=bddchocsq3';
-    private static $user = 'userchoc';
+    private static $serveur = 'mysql:host=db'; //10.0.0.4
+    private static $bdd = 'dbname=chocolatein';
+    private static $user = 'userChoc';
     private static $mdp = 'p@ssCh0c';
     private static $monPdo;
     private static $monPdoChoc = null;

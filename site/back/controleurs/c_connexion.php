@@ -21,7 +21,7 @@ if(isset($_POST['formconnexion'])){
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 if(isLoggedOn()){
-    header("Location: index.php");
+     include "$racine/controleurs/".controleurPrincipal("defaut"); //page par défaut : si connecté catalogue, sinon connexion
 } else {
     $title = "Connexion";
     include "$racine/vues/entete.html.php";

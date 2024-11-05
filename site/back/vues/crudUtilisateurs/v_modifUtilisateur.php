@@ -2,12 +2,11 @@
 <div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
-		<center><h4 class="modal-title" id="myModalLabel">Modifier Utilisateur</h4></center>
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<center><h4 class="modal-title" id="myModalLabel">Modifier Utilisateur</h4></center>
 		</div>
 		<div class="modal-body">
 			<form method="POST" action="?action=CRUDUtilisateurs">
-				<input type="hidden" id="token" name="token" value="<?= $token ?>">
 				<div class="container-fluid">
 					<input type="hidden" class="form-control" name="id" value="<?php echo $data['IDUTILISATEURS']; ?>">
 					<div class="col-sm-2">
@@ -27,7 +26,7 @@
 						<label class="control-label modal-label">Rôle:</label>
 					</div>
 					<div class="col-sm-10">
-						<select class="browser-default custom-select" name="role" id="role">
+						<select name="role" id="role">
 							<?php
 							foreach($roles as $r){
 									if($data['role'] == $r['IDROLES']){?>

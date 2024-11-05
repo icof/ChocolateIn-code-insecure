@@ -1,10 +1,25 @@
 <?php
 
+include_once "bd.inc.php";
+
 function getUtilisateurs() {
     $resultat = array();
     try {
         $cnx = connexionPDO();
         $req = $cnx->prepare("select * from utilisateurs JOIN roles ON role = IDROLES ");
+        $req->execute();
+        $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+function getRoles() {
+    $resultat = array();
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("select * from roles");
         $req->execute();
         $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {

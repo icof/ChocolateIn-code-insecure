@@ -2,8 +2,8 @@
 <div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			<center><h4 class="modal-title" id="myModalLabel">Message de <?php echo $data['personne']; ?> reçu le <?php echo $data['date']; ?></h4></center>
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		</div>
 		<div class="modal-body">
 			<div>

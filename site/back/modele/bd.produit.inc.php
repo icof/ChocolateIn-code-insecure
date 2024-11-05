@@ -1,5 +1,7 @@
 <?php
 
+include_once "bd.inc.php";
+   
 function getProduits() {
     $resultat = array();
     try {
@@ -18,9 +20,9 @@ function getProduitsByGame($idGamme) {
     $resultat = array();
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from produit WHERE idGamme = :idGamme");
-        $req->bindParam(':idGamme', $idGamme, PDO::PARAM_STR);
-        $req->execute();
+        //$req = $cnx->prepare("select * from produit WHERE idGamme = :idGamme");
+        //$req->bindParam(':idGamme', $idGamme, PDO::PARAM_STR);
+        $req = $cnx->prepare("select * from produit WHERE idGamme = ? ");$req->execute(array($idGamme));
         $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
@@ -128,7 +130,7 @@ function creerImagesJpeg($repertoireCible, $nomFichierSansExt, $largeur){
     list($width, $height) = getimagesize($repertoireCible."/".$nomFichierSansExt.".jpg");
     $diff = $width / $largeur;
     $hauteur = $height / $diff;
-    // création et enregistrement nouvelle image
+    // crétaion et enregistrement nouvelle image
     $image = imagecreatefromjpeg($repertoireCible."/".$nomFichierSansExt.".jpg");
     $nouvelleImage = imagecreatetruecolor($largeur, $hauteur);
     imagecopyresampled($nouvelleImage, $image, 0, 0, 0, 0, $largeur, $hauteur, $width, $height);

@@ -2,13 +2,12 @@
 <div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
-			<center><h4 class="modal-title" id="myModalLabel">Ajouter un nouveau produit</h4></center>
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<center><h4 class="modal-title" id="myModalLabel">Ajouter un nouveau produit</h4></center>
 		</div>
 		<div class="modal-body">
 		
 			<form method="POST" action="?action=CRUDProduits" enctype="multipart/form-data">
-				<input type="hidden" id="token" name="token" value="<?= $token ?>">
 				<div class="container-fluid">
 					<div class="row form-group">
 						<div class="col-sm-3">
@@ -48,7 +47,7 @@
 						</div>
 						<div class="col-sm-9">
 							Ajouter une image au format jpeg :
-							<input accept="image/jpeg" type="file" name="fileToUpload" id="fileToUpload" class="form-control-file" value="" required>
+							<input accept="image/jpeg" type="file" name="fileToUpload" id="fileToUpload" class="custom-file-input" value="" required>
 							<img id="preview" class="w-50 img-fluid">
 						</div>
 						
@@ -58,7 +57,7 @@
 							<label class="control-label modal-label">Gamme :</label>
 						</div>
 						<div class="col-sm-9">
-							<select class="browser-default custom-select" name="idgamme" id="idgamme" required >
+							<select class="form-control" name="idgamme" id="idgamme" required style="margin-bottom:5%;">
 								<?php
 								foreach($gammes as $uneGamme){?>
 									<option value="<?php echo $uneGamme['id']; ?>"><?php echo $uneGamme['id']; ?></option>

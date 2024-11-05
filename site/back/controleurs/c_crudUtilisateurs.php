@@ -4,76 +4,54 @@
         $racine = "..";
     }
 
+    include_once("$racine/modele/bd.authentification.inc.php");
+    include_once("$racine/modele/bd.utilisateur.inc.php");
+
     if(isLoggedOn()){
 
         if(isset($_POST['add'])){
-            if ($_POST['token'] == $_SESSION['token'] && time() - $_SESSION['token_time'] <= 60){
-                $pseudo = htmlentities($_POST['pseudo']);
-                $email = htmlentities($_POST['email']);
-                $role = htmlentities($_POST['role']);
-                $mdp = htmlentities($_POST['mdp']);
-                $resultat = setUtilisateur($pseudo, $email, $role, $mdp);
-                if($resultat){
-                    $_SESSION["success"] = 'Utilisateur ajouté';
-                }
-                else{
-                    $_SESSION["error"] = 'Problème lors de l\'ajout de l\'Utilisateur';
-                }
-            } 
-            else {
-                if($_POST['token'] != $_SESSION['token']){
-                    $_SESSION["error"] = 'Problème jeton invalide';
-                }
-                if(time() - $_SESSION['token_time'] > 60){
-                    $_SESSION["error"] = 'Problème jeton expiré';
-                }
+            $pseudo = htmlentities($_POST['pseudo']);
+            $email = htmlentities($_POST['email']);
+            $role = htmlentities($_POST['role']);
+            $mdp = htmlentities($_POST['mdp']);
+
+            $resultat = setUtilisateur($pseudo, $email, $role, $mdp);
+
+            if($resultat){
+                $_SESSION["success"] = 'Utilisateur ajouté';
+            }
+            else{
+                $_SESSION["error"] = 'Problème lors de l\'ajout de l\'Utilisateur';
             }
         }
 
                 
         if(isset($_POST['edit'])){
-            if ($_POST['token'] == $_SESSION['token'] && time() - $_SESSION['token_time'] <= 60){
-                $pseudo = htmlentities($_POST['pseudo']);
-                $email = htmlentities($_POST['email']);
-                $role = htmlentities($_POST['role']);
-                $id = htmlentities($_POST['id']);
+            $pseudo = htmlentities($_POST['pseudo']);
+            $email = htmlentities($_POST['email']);
+            $role = htmlentities($_POST['role']);
+            $id = htmlentities($_POST['id']);
 
-                $resultat = updateUtilisateur($pseudo, $email, $role, $id);
-                if($resultat){
-                    $_SESSION['success'] = 'Utilisateur modifié';
-                }
-                else{
-                    $_SESSION['error'] = 'Problème lors de la modification de l\'Utilisateur';
-                }
-            } 
-            else {
-                if($_POST['token'] != $_SESSION['token']){
-                    $_SESSION["error"] = 'Problème jeton invalide';
-                }
-                if(time() - $_SESSION['token_time'] > 60){
-                    $_SESSION["error"] = 'Problème jeton expiré';
-                }
+            $resultat = updateUtilisateur($pseudo, $email, $role, $id);
+
+            if($resultat){
+                $_SESSION['success'] = 'Utilisateur modifié';
+            }		
+            else{
+                $_SESSION['error'] = 'Problème lors de la modification de l\'Utilisateur';
             }
         }
         
         if(isset($_POST['supr'])){
-            if ($_POST['token'] == $_SESSION['token'] && time() - $_SESSION['token_time'] <= 60){
-                $id = htmlentities($_POST['id']);
-                $resultat = supprUtilisateur($id);
-                if($resultat){
-                    $_SESSION['success'] = 'Utilisateur supprimé';
-                }
-                else{
-                    $_SESSION['error'] = 'Problème lors de la suppression de l\'Utilisateur';
-                }
-            } 
-            else {
-                if($_POST['token'] != $_SESSION['token']){
-                    $_SESSION["error"] = 'Problème jeton invalide';
-                }
-                if(time() - $_SESSION['token_time'] > 60){
-                    $_SESSION["error"] = 'Problème jeton expiré';
-                }
+            $id = htmlentities($_POST['id']);
+            
+            $resultat = supprUtilisateur($id);
+
+            if($resultat){
+                $_SESSION['success'] = 'Utilisateur supprimé';
+            }		
+            else{
+                $_SESSION['error'] = 'Problème lors de la suppression de l\'Utilisateur';
             }
         }
 

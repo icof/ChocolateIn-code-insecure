@@ -1,7 +1,6 @@
 <?php
-session_start();
-//$urlBack = "http://admin.chocolatein.fr";
-$urlBack = "../back";
+$urlBack = "http://admin.chocolatein.fr";
+$urlBack = "../choco-B3-back";
 
 require_once './modele/class.pdochoc.inc.php';
 $pdo = PdoChoc::getPdoChoc();
