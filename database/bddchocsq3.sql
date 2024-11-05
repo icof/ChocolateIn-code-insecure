@@ -22,9 +22,9 @@ SET time_zone = "+00:00";
 -- Base de données :  `bddchocsq3`
 --
 CREATE DATABASE IF NOT EXISTS `bddchocsq3` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-CREATE USER 'userchoc'@'%' IDENTIFIED BY 'p@ssCh0c';
+CREATE USER IF NOT EXISTS 'userchoc'@'%' IDENTIFIED BY 'p@ssCh0c';
 
-GRANT ALL PRIVILEGES ON bddchocsq3.* TO 'userchoc'@'%' IDENTIFIED BY 'p@ssCh0c';
+GRANT ALL PRIVILEGES ON bddchocsq3.* TO 'userchoc'@'%';
 
 USE `bddchocsq3`;
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `actualite` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `titre` text NOT NULL,
   `contenu` text NOT NULL,
-  `datepublication` date NOT NULL DEFAULT current_timestamp(),
+  `datepublication` datetime NOT NULL DEFAULT current_timestamp(),
   `actif` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
@@ -293,7 +293,7 @@ DROP TABLE IF EXISTS `utilisateurs`;
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `IDUTILISATEURS` int(11) NOT NULL AUTO_INCREMENT,
   `pseudo` text NOT NULL,
-  `mail` text NOT NULL,
+  `mail` varchar(200) NOT NULL,
   `motdepasse` text NOT NULL,
   `role` int(11) NOT NULL,
   PRIMARY KEY (`IDUTILISATEURS`),

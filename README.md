@@ -1,6 +1,6 @@
-# Devoir MVC objet SIO2 - sujet CRC
-site MVC objet à faire évoluer
-> **Note :** Dernière MAJ 10/2024 
+# ChocolateIn correction de code post-pentest
+Dépot de code de l'application présentant des vulnérabilités identifiées lors du pentest.
+> **Note :** Dernière MAJ 11/2024 
 
 ## Configuration du site sur un serveur
 Ce projet nécessite les éléments suivants :
@@ -9,7 +9,7 @@ Ce projet nécessite les éléments suivants :
 
 ### CAS 1 : Utilisation avec un serveur LAMP local (Wamp, Uwamp, Laragon, ...)
 1. Copiez le contenu du dossier `site` sous votre repertoire web dans /retrogaming
-2. Importez le script `database/crc.sql` dans votre SGBD MySQL local. Ce script crée la base de données, l'utilisateur du driver, les tables et importe les données nécessaires.
+2. Importez le script `database/bddchocsq3.sql` dans votre SGBD MySQL local. Ce script crée la base de données, l'utilisateur du driver, les tables et importe les données nécessaires.
 2. Adaptez la valeur du serveur MySQL auquel on effectue la connexion dans la variable `$_ENV["host"]` du fichier `site/infosConnexionBDD.inc.php`. Sur un serveur local, elle est classiquement à "localhost".
 2. Adaptez la valeur du port d'écoute de votre serveur MySQL dans la variable `$_ENV["port"]` du fichier `site/infosConnexionBDD.inc.php`.
 3. Adaptez la valeur de la base de données utilisée sur votre serveur MySQL dans la variable `$_ENV["dbname"]` du fichier `site/infosConnexionBDD.inc.php`.
