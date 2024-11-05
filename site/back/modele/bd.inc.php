@@ -1,7 +1,7 @@
 <?php
 
 function connexionPDO() {
-    $login = "userChoc";
+    $login = "userchoc";
 	$mdp = "p@ssCh0c";
 	$bd = "bddchocsq3";
 	$serveur = "db"; // 10.0.0.4
