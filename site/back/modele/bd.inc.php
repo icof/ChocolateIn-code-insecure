@@ -3,7 +3,7 @@
 function connexionPDO() {
     $login = "userChoc";
 	$mdp = "p@ssCh0c";
-	$bd = "chocolatein";
+	$bd = "bddchocsq3";
 	$serveur = "db"; // 10.0.0.4
 
     try {
