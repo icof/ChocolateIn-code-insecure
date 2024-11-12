@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" type="image/x-icon" href="vues/css/images/favicon.ico">
-		<meta name="author" content="Tiphaine Accary Barbier">
+		<meta name="author" content="Tiphaine ACCARY-BARBIER">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="robots" content="index,follow,all" />
 		<title><?php echo $title; ?></title>
