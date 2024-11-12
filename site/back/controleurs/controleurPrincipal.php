@@ -34,6 +34,8 @@ function chargerModeles($racine){
     include_once("$racine/modele/bd.produit.inc.php");
     include_once("$racine/modele/bd.role.inc.php");
     include_once("$racine/modele/bd.utilisateur.inc.php");
+    include_once("$racine/modele/bd.habilitation.inc.php");
+    include_once("$racine/modele/bd.page.inc.php");
 }
 
 ?>
