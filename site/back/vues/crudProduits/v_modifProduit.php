@@ -2,12 +2,11 @@
 <div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			<center><h4 class="modal-title" id="myModalLabel">Modifier le produit <?php echo $data['id']; ?></h4></center>
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		</div>
 		<div class="modal-body">
 			<form method="POST" action="?action=CRUDProduits">
-				<input type="hidden" id="token" name="token" value="<?= $token ?>">
 				<div class="container-fluid">
 					<input type="hidden" class="form-control" name="id" value="<?php echo $data['id']; ?>">
 					<div class="row form-group">
@@ -47,7 +46,7 @@
 							<label class="control-label modal-label">Gamme :</label>
 						</div>
 						<div class="col-sm-9">
-							<select class="browser-default custom-select" name="idgamme" id="idgamme" required style="margin-bottom:5%;">
+							<select class="form-control" name="idgamme" id="idgamme" required style="margin-bottom:5%;">
 							<?php
 							foreach($gammes as $uneGamme){
 								$selected = "";

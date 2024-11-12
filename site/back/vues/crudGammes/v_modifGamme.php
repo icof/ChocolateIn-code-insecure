@@ -2,12 +2,11 @@
 <div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
-			<center><h4 class="modal-title" id="myModalLabel">Modifier la gamme <?php echo $data['id']; ?></h4></center>
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<center><h4 class="modal-title" id="myModalLabel">Modifier la gamme <?php echo $data['id']; ?></h4></center>
 		</div>
 		<div class="modal-body">
 			<form method="POST" action="?action=CRUDGammes">
-				<input type="hidden" id="token" name="token" value="<?= $token ?>">
 				<div class="container-fluid">
 					<input type="hidden" class="form-control" name="id" value="<?php echo $data['id']; ?>">
 					<div class="row form-group">

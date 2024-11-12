@@ -1,14 +1,13 @@
 <!-- Add New -->
 <div class="modal-dialog">
 	<div class="modal-content">
-			<center><h4 class="modal-title" id="myModalLabel">Ajouter une actualité</h4></center>
-			<div class="modal-header">
+		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<center><h4 class="modal-title" id="myModalLabel">Ajouter une actualité</h4></center>
 		</div>
 		<div class="modal-body">
 		
 			<form method="POST" action="?action=CRUDActualites">
-				<input type="hidden" id="token" name="token" value="<?= $token ?>">
 				<div class="container-fluid">
 					<div class="row form-group">
 						<div class="col-sm-3">
@@ -23,6 +22,8 @@
 							<label class="control-label modal-label">contenu :</label>
 						</div>
 						<div class="col-sm-9">
+							<!--<input type="text" class="form-control" name="contenu" required style="margin-bottom:5%;">-->
+
 							<textarea  id="contenu" class="form-control editor" value="1"  name="contenu" rows="5" > </textarea>
 						</div>
 						
@@ -40,6 +41,7 @@
 							<label class="control-label modal-label">en ligne : </label>
 						</div>
 						<div class="col-sm-9">
+							<!--<input type="text" class="form-control" name="actif" required style="margin-bottom:5%;">-->
 							<input type="radio" id="0" name="actif" value="0" checked><label for="0">non</label>
 							<input type="radio" id="1" name="actif" value="1"><label for="1">oui</label>
 						</div>
