@@ -125,13 +125,14 @@ function supprimerImageJpeg($urlImg){
     @unlink($urlImg."_750w.jpg");
 }
 
-function creerImagesJpeg($dossier, $nom, $largeur) {
-    $cheminImage = $dossier . '/' . $nom . '.jpg';
-    
+function creerImagesJpeg($repertoireCible, $nomFichierSansExt, $largeur)
+{
+    $cheminImage = $repertoireCible . '/' . $nomFichierSansExt . '.jpg';
     if (!file_exists($cheminImage)) {
         throw new Exception("Le fichier image n'existe pas : " . $cheminImage);
     }
 
+    // Calcul des nouvelles dimensions
     list($largeur_orig, $hauteur_orig) = getimagesize($cheminImage);
     
     if ($largeur_orig == 0 || $hauteur_orig == 0) {
@@ -141,11 +142,11 @@ function creerImagesJpeg($dossier, $nom, $largeur) {
     $ratio_orig = $largeur_orig / $hauteur_orig;
     $hauteur = $largeur / $ratio_orig;
 
+    // création et enregistrement de 2 nouvelles images
     $image_p = imagecreatetruecolor(round($largeur), round($hauteur));
     $image = imagecreatefromjpeg($cheminImage);
     imagecopyresampled($image_p, $image, 0, 0, 0, 0, round($largeur), round($hauteur), round($largeur_orig), round($hauteur_orig));
-
-    imagejpeg($image_p, $dossier . '/' . $nom . '_small.jpg', 100);
+    imagejpeg($image_p, $repertoireCible . "/" . $nomFichierSansExt . "_" . $largeur . "w.jpg");
 }
 
 ?>
