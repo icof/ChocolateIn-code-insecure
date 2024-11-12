@@ -2,11 +2,12 @@
 <div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			<center><h4 class="modal-title" id="myModalLabel">Modifier l'actualité <?php echo $data['titre']; ?></h4></center>
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		</div>
 		<div class="modal-body">
 			<form method="POST" action="?action=CRUDActualites">
+				<input type="hidden" id="token" name="token" value="<?= $token ?>">
 				<div class="container-fluid">
 					<input type="hidden" class="form-control" name="id" value="<?php echo $data['id']; ?>">
 					<div class="row form-group">

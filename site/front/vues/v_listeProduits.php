@@ -32,7 +32,7 @@
         ?>
         <article class="card col-md-3 p-2">
             <div class="card col border-choc">
-                <img src="<?= $urlBack."/".$urlImgPdt ?>_300w.jpg" class="card-img-top mt-2" alt="<?= $nomPdt ?>">
+                <img src="<?= $urlBack.substr($urlImgPdt, 1) ?>_300w.jpg" class="card-img-top mt-2" alt="<?= $nomPdt ?>">
                 <div class="card-body py-0">
                     <small class="text-muted"><?= $packagingPdt ?></small>
                     <h5 class="card-title mb-0"><?= $nomPdt ?></h5>

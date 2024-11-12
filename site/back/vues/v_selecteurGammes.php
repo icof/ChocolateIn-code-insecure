@@ -7,7 +7,7 @@
 
 <h1>Choix d'une gamme</h1>
 <form method="POST" action="?action=catalogue">
-    <select name="id" id="idGamme" onchange="submit();">>
+    <select class="browser-default custom-select" name="id" id="idGamme" onchange="submit();">>
         <option value="" >Toutes les gammes</option>
         <?php
         foreach ($lesGammes as $uneGamme) {

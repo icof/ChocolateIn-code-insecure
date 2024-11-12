@@ -1,5 +1,6 @@
 <?php
-$urlBack = "http://admin.chocolatein.fr";
+session_start();
+//$urlBack = "http://admin.chocolatein.fr";
 $urlBack = "../back";
 
 require_once './modele/class.pdochoc.inc.php';

@@ -2,7 +2,7 @@
 <div id="my_modal" class="modal"></div>
 
 	<div class="row">
-		<div class="row">
+		<div class="col">
 		<?php
 			if(isset($_SESSION['error'])){
 				echo
@@ -26,11 +26,8 @@
 			}
 		?>
 		</div>
-
-		<div class="height10">
-		</div>
 	</div>	
-		
+	<div class="height10"></div>
 	<div class="row">
 		<table id="myTable" class="table table-bordered table-striped">
 			<thead>
