@@ -7,7 +7,7 @@
  *
  * @category  B35
  * @package   ChocolateIn B3
- * @author    Tiphaine Accary-Barbier <tiphaine.accary-barbier@ac-lyon.fr> 
+ * @author    Tiphaine ACCARY-BARBIER <tiphaine.accary-barbier@ac-lyon.fr> 
  * @copyright 2020 José GIL
  * @license   José GIL
  * @version   GIT: <0>
