@@ -4,16 +4,13 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     $racine = "..";
 }
 
-include_once("$racine/modele/bd.gamme.inc.php");
-include_once("$racine/modele/bd.produit.inc.php");
-include_once("$racine/modele/bd.utilisateur.inc.php");
-include_once("$racine/modele/bd.actualite.inc.php");
-include_once("$racine/modele/bd.message.inc.php");
-
 // recuperation des donnees GET, POST, et SESSION
 
 $nomVue = $_GET['nomVue'];
 $id = $_GET['id'];
+$token = md5(uniqid(rand(), TRUE));
+$_SESSION['token'] = $token;
+$_SESSION['token_time'] = time();
 
 // traitement si necessaire des donnees recuperees
 switch ($nomVue) {

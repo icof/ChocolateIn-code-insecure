@@ -15,11 +15,6 @@ logout();
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 
-include "$racine/controleurs/".controleurPrincipal("defaut"); //page par défaut : si connecté catalogue, sinon connexion
+header("Location: index.php");
 
-
-//$title = "Accueil";
-//include "$racine/vues/entete.html.php";
-//include "$racine/vues/v_connexion.php";
-//include "$racine/vues/pied.html.php";
 ?>

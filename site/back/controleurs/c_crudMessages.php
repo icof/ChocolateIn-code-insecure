@@ -3,53 +3,52 @@
         $racine = "..";
     }
 
-    include_once("$racine/modele/bd.message.inc.php");
 
     // recuperation des donnees GET, POST, FILES et SESSION
     if(isLoggedOn()){
-     
-
-        /*if(isset($_POST['reply'])){
-            $id = htmlentities($_POST['id']);
-            $objet = htmlentities($_POST['objet']);
-            $contenu = $_POST['contenu'];	
-            $mail = htmlentities($_POST['mail']);	
-	
-
-            $resultat = repondreMessage($id, $mail, $objet, $contenu);
-
-            if($resultat){
-                $_SESSION['success'] = 'Réponse à la demande de contact envoyée';
-            }		
-            else{
-                $_SESSION['error'] = 'Problème lors de l\'envoi de la réponse à la demande de contact';
-            }
-        }*/
-
-        
         if(isset($_POST['done'])){
-            $id = htmlentities($_POST['id']);
-            $commentaire = $_POST['commentaire'];
-            $resultat = traiterMessage($id, $commentaire);
-
-            if($resultat){
-                $_SESSION['success'] = 'Demande de contact marquée comme traitée';
-            }		
-            else{
-                $_SESSION['error'] = 'Problème lors du traitement de la demande de contact';
+            if ($_POST['token'] == $_SESSION['token'] && time() - $_SESSION['token_time'] <= 60){
+                $id = htmlentities($_POST['id']);
+                $commentaire = $_POST['commentaire'];
+                $resultat = traiterMessage($id, $commentaire);
+                if($resultat){
+                    $_SESSION['success'] = 'Demande de contact marquée comme traitée';
+                }
+                else{
+                    $_SESSION['error'] = 'Problème lors du traitement de la demande de contact';
+                }
+            } 
+            else {
+                if($_POST['token'] != $_SESSION['token']){
+                    $_SESSION["error"] = 'Problème jeton invalide';
+                }
+                if(time() - $_SESSION['token_time'] > 60){
+                    $_SESSION["error"] = 'Problème jeton expiré';
+                }
             }
+            
         }
 
         if(isset($_POST['supr'])){
-            $id = htmlentities($_POST['id']);
-            $resultat = supprMessage($id);
-
-            if($resultat){
-                $_SESSION['success'] = 'Demande de contact suprimée';
-            }		
-            else{
-                $_SESSION['error'] = 'Problème lors de la suppression de la demande de contact';
+            if ($_POST['token'] == $_SESSION['token'] && time() - $_SESSION['token_time'] <= 60){
+                $id = htmlentities($_POST['id']);
+                $resultat = supprMessage($id);
+                if($resultat){
+                    $_SESSION['success'] = 'Demande de contact suprimée';
+                }
+                else{
+                    $_SESSION['error'] = 'Problème lors de la suppression de la demande de contact';
+                }
+            } 
+            else {
+                if($_POST['token'] != $_SESSION['token']){
+                    $_SESSION["error"] = 'Problème jeton invalide';
+                }
+                if(time() - $_SESSION['token_time'] > 60){
+                    $_SESSION["error"] = 'Problème jeton expiré';
+                }
             }
+            
         }
 
 

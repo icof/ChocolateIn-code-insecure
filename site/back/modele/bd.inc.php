@@ -4,7 +4,7 @@ function connexionPDO() {
     $login = "userchoc";
 	$mdp = "p@ssCh0c";
 	$bd = "bddchocsq3";
-	$serveur = "db"; // 10.0.0.4
+	$serveur = "localhost";
 
     try {
         $conn = new PDO("mysql:host=$serveur;dbname=$bd", $login, $mdp, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'')); 
