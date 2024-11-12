@@ -3,80 +3,53 @@
         $racine = "..";
     }
 
-    require_once("$racine/bibliotheques/htmlpurifier/HTMLPurifier.auto.php");
-    $purifier = new HTMLPurifier();
-    
+    include_once("$racine/modele/bd.actualite.inc.php");
+
     // recuperation des donnees GET, POST, FILES et SESSION
     if(isLoggedOn()){
         if(isset($_POST['add'])){
-            if ($_POST['token'] == $_SESSION['token'] && time() - $_SESSION['token_time'] <= 60){
-                $titre = htmlentities($_POST['titre']);
-                $contenu = $purifier->purify($_POST['contenu']);
-                $datepublication = htmlentities($_POST['datePublication']);	
-                $actif = htmlentities($_POST['actif']);	
+            $titre = htmlentities($_POST['titre']);
+            $contenu = $_POST['contenu'];	
+            $datepublication = htmlentities($_POST['datePublication']);	
+            $actif = htmlentities($_POST['actif']);	
 
-                $resultat = ajoutActualite($titre, $contenu, $datepublication, $actif);
-                if($resultat){
-                    $_SESSION["success"] = 'Actualité ajoutée';
-                }
-                else{
-                    $_SESSION["error"] = 'Problème lors de l\'ajout de l\'actualité';
-                }
-            } 
-            else {
-                if($_POST['token'] != $_SESSION['token']){
-                    $_SESSION["error"] = 'Problème jeton invalide';
-                }
-                if(time() - $_SESSION['token_time'] > 60){
-                    $_SESSION["error"] = 'Problème jeton expiré';
-                }
+            $resultat = ajoutActualite($titre, $contenu, $datepublication, $actif);
+            
+            if($resultat){
+                $_SESSION["success"] = 'Actualité ajoutée';
+            }
+            else{
+                $_SESSION["error"] = 'Problème lors de l\'ajout de l\'actualité';
             }
         }
 
         if(isset($_POST['edit'])){
-            if ($_POST['token'] == $_SESSION['token'] && time() - $_SESSION['token_time'] <= 60){
-                $id = htmlentities($_POST['id']);
-                $titre = htmlentities($_POST['titre']);
-                $contenu = $_POST['contenu'];	
-                $datepublication = htmlentities($_POST['datePublication']);	
-                $actif = htmlentities($_POST['actif']);	
-                $resultat = editActualite($id, $titre, $contenu, $datepublication, $actif);
-                if($resultat){
-                    $_SESSION['success'] = 'Actualité modifiée';
-                }
-                else{
-                    $_SESSION['error'] = 'Problème lors de la modification de l\'actualité';
-                }
-            } 
-            else {
-                if($_POST['token'] != $_SESSION['token']){
-                    $_SESSION["error"] = 'Problème jeton invalide';
-                }
-                if(time() - $_SESSION['token_time'] > 60){
-                    $_SESSION["error"] = 'Problème jeton expiré';
-                }
+            $id = htmlentities($_POST['id']);
+            $titre = htmlentities($_POST['titre']);
+            $contenu = $_POST['contenu'];	
+            $datepublication = htmlentities($_POST['datePublication']);	
+            $actif = htmlentities($_POST['actif']);	
+	
+
+            $resultat = editActualite($id, $titre, $contenu, $datepublication, $actif);
+
+            if($resultat){
+                $_SESSION['success'] = 'Actualité modifié';
+            }		
+            else{
+                $_SESSION['error'] = 'Problème lors de la modification de l\'actualité';
             }
-            
         }
 
         if(isset($_POST['supr'])){
-            if ($_POST['token'] == $_SESSION['token'] && time() - $_SESSION['token_time'] <= 60){
-                $id = htmlentities($_POST['id']);
-                $resultat = supprActualite($id);
-                if($resultat){
-                    $_SESSION['success'] = 'Actualité suprimée';
-                }
-                else{
-                    $_SESSION['error'] = 'Problème lors de la suppression de l\'actualité';
-                }
-            } 
-            else {
-                if($_POST['token'] != $_SESSION['token']){
-                    $_SESSION["error"] = 'Problème jeton invalide';
-                }
-                if(time() - $_SESSION['token_time'] > 60){
-                    $_SESSION["error"] = 'Problème jeton expiré';
-                }
+            $id = htmlentities($_POST['id']);
+            $resultat = supprActualite($id);
+
+            if($resultat){
+                $_SESSION['success'] = 'Actualité suprimée';
+            }		
+            else{
+                $_SESSION['error'] = 'Problème lors de la suppression de l\'actualité';
             }
         }
 

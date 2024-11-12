@@ -2,13 +2,12 @@
 <div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
-			<center><h4 class="modal-title" id="myModalLabel">Ajouter un nouveau Utilisateur</h4></center>
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<center><h4 class="modal-title" id="myModalLabel">Ajouter un nouveau Utilisateur</h4></center>
 		</div>
 
 		<div class="modal-body">
 			<form method="POST" action="?action=CRUDUtilisateurs">
-				<input type="hidden" id="token" name="token" value="<?= $token ?>">
 				<div class="container-fluid">
 			
 					<div class="row form-group">
@@ -28,7 +27,7 @@
 							<label class="control-label modal-label">Rôle:</label>
 						</div>
 						<div class="col-sm-10">
-							<select name="role" id="role" class="browser-default custom-select" required style="margin-bottom:5%;">
+							<select name="role" id="role" required style="margin-bottom:5%;">
 								<?php
 								foreach($roles as $r){?>
 										
