@@ -1,5 +1,6 @@
 # ChocolateIn correction de code post-pentest
 Dépot de code de l'application présentant des vulnérabilités identifiées lors du pentest.
+Code obtenu après les modifs de l'activité de correction de problèemes de code.
 > **Note :** Dernière MAJ 11/2024 
 
 ## Configuration du site sur un serveur
