@@ -16,9 +16,6 @@ Ce projet nécessite les éléments suivants :
 
 > **Info relative aux modifications dans la BDD :** La BDD est générée lors de la création des conteneurs. Ses fichiers sont mappés avec le dossier `database/db_data` qui n'est intégré dans le dépot (il est défini dans le .gitignore). Cela implique là-aussi que les modif apportées à la BDD dans le codespace disparaitront à sa destruction. Pour les conserver (si elles sont utiles), il est conseillé de scripter chaque évolution dans un fichier .sql ou de mettre à jour le fichier d'initialisation de la base de données à partir d'u dump de votre BDD.
 
-## Notes importantes
-Pour toute assistance supplémentaire, consultez la documentation appropriée pour votre environnement LAMP local ou pour l'utilisation de CodeSpaces https://docs.github.com/fr/codespaces.
-
 ### CAS 2 : Utilisation avec un serveur LAMP local (Wamp, Uwamp, Laragon, ...)
 
 #### Installation de Git en local
@@ -60,3 +57,6 @@ Pour faciliter le développement et la maintenance de ce projet, nous recommando
 - **Git History** (`donjayamanne.githistory`) : Permet de visualiser et de naviguer dans l'historique des commits Git.
 
 Pour installer les extensions recommandées, allez dans le menu "Extensions" de VSCode, tapez `@recommended` dans la barre de recherche, et cliquez sur le symbole de téléchargement (nuage avec flèche) à côté des extensions listées. Ces outils vous aideront à écrire du code plus efficacement, à déboguer plus facilement, et à gérer vos conteneurs Docker directement depuis l'éditeur.
+
+## Notes importantes
+Pour toute assistance supplémentaire, consultez la documentation appropriée pour votre environnement LAMP local ou pour l'utilisation de CodeSpaces https://docs.github.com/fr/codespaces.
