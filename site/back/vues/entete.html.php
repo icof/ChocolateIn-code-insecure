@@ -16,6 +16,10 @@
 		<link href="vues/css/fontawesome/css/all.min.css" rel="stylesheet">
 
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<style>
+			/* Hide CKEditor inline notification popups */
+			.cke_notifications_area { display: none !important; }
+		</style>
 
 		<script src="bibliotheques/perso/fonctions.js"></script>
 		<script src="bibliotheques/jquery/jquery.min.js"></script>
