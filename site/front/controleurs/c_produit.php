@@ -13,8 +13,8 @@
  * @version   GIT: <0>
  * @link      https://chocolatein.gil83.fr Contexte « Chocolate'In »
  */
-$produit = filter_input(INPUT_GET, 'produit', FILTER_SANITIZE_STRING);
-$recherche = filter_input(INPUT_GET, 'recherche', FILTER_SANITIZE_STRING);
+$produit = filter_input(INPUT_GET, 'produit', FILTER_UNSAFE_RAW);
+$recherche = filter_input(INPUT_GET, 'recherche', FILTER_UNSAFE_RAW);
 if (empty($recherche)) {
     unset($recherche);
 }
