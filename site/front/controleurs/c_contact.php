@@ -22,9 +22,12 @@ $ville = filter_input(INPUT_POST, 'ville', FILTER_UNSAFE_RAW);
 $site = filter_input(INPUT_POST, 'site', FILTER_SANITIZE_URL);
 $message = filter_input(INPUT_POST, 'msg', FILTER_UNSAFE_RAW);
 //$message = $_POST['msg'];
-if (!empty($action)) {
-    if ($action === "envoiContact") {
-        $envoiReussi = $pdo->setLeContact($personne, $statut, $mail, $tel, $ville, $site, $message);
-    }
+$token = filter_input(INPUT_POST, 'token', FILTER_UNSAFE_RAW);
+if (!empty($action) && $action === "envoiContact" && $token == $_SESSION['token'] && time() - $_SESSION['token_time'] <= 120){
+     $envoiReussi = $pdo->setLeContact($personne, $statut, $mail, $tel, $ville, $site, $message);
 }
+
+$token = md5(uniqid(rand(), TRUE));
+$_SESSION['token'] = $token;
+$_SESSION['token_time'] = time();
 include 'vues/v_contact.php';

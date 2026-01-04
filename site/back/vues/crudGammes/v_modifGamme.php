@@ -7,6 +7,7 @@
 		</div>
 		<div class="modal-body">
 			<form method="POST" action="?action=CRUDGammes">
+				<input type="hidden" id="token" name="token" value="<?= $token ?>">
 				<div class="container-fluid">
 					<input type="hidden" class="form-control" name="id" value="<?php echo $data['id']; ?>">
 					<div class="row form-group">

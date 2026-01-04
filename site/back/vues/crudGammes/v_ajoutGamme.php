@@ -8,6 +8,7 @@
 		<div class="modal-body">
 		
 			<form method="POST" action="?action=CRUDGammes">
+				<input type="hidden" id="token" name="token" value="<?= $token ?>">
 				<div class="container-fluid">
 					<div class="row form-group">
 						<div class="col-sm-3">

@@ -8,19 +8,28 @@
     // recuperation des donnees GET, POST, et SESSION
     if(isLoggedOn()){
         if(isset($_POST['add'])){
-            $id = htmlentities($_POST['id']);
-            $libelle = htmlentities($_POST['libelle']);
-            $picto = htmlentities($_POST['picto']);	
-
-            $resultat = ajoutGamme($id, $libelle, $picto);
-            
-            if($resultat){
-                $_SESSION["success"] = 'Gamme ajouté';
-            }
-            else{
-                $_SESSION["error"] = 'Problème lors de l\'ajout de la gamme';
+            if ($_POST['token'] == $_SESSION['token'] && time() - $_SESSION['token_time'] <= 60){
+                $id = htmlentities($_POST['id']);
+                $libelle = htmlentities($_POST['libelle']);
+                $picto = htmlentities($_POST['picto']); 
+                $resultat = ajoutGamme($id, $libelle, $picto);
+                if($resultat){
+                    $_SESSION["success"] = 'Gamme ajouté';
+                }
+                else{
+                    $_SESSION["error"] = 'Problème lors de l\'ajout de la gamme';
+                }
+            } 
+            else {
+                if($_POST['token'] != $_SESSION['token']){
+                    $_SESSION["error"] = 'Problème jeton invalide';
+                }
+                if(time() - $_SESSION['token_time'] > 60){
+                    $_SESSION["error"] = 'Problème jeton expiré';
+                }
             }
         }
+
 
         if(isset($_POST['edit'])){
             $id = htmlentities($_POST['id']);

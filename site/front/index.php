@@ -1,4 +1,5 @@
 <?php
+session_start();
 $urlBack = "http://admin.chocolatein.fr";
 $urlBack = "../back";
 

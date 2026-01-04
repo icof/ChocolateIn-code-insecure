@@ -4,12 +4,15 @@
     }
 
     include_once("$racine/modele/bd.actualite.inc.php");
+    require_once("$racine/bibliotheques/htmlpurifier/HTMLPurifier.auto.php");
+$purifier = new HTMLPurifier();
+
 
     // recuperation des donnees GET, POST, FILES et SESSION
     if(isLoggedOn()){
         if(isset($_POST['add'])){
             $titre = htmlentities($_POST['titre']);
-            $contenu = $_POST['contenu'];	
+            $contenu = $purifier->purify($_POST['contenu']);	
             $datepublication = htmlentities($_POST['datePublication']);	
             $actif = htmlentities($_POST['actif']);	
 

@@ -34,6 +34,7 @@
     <h1 class="col-md-12">Nous contacter</h1>
     <article class="col-md-12"> 
         <form role="form" data-toggle="validator" class="card bg-light card-body mb-3 needs-validation" action="?uc=contact&action=envoiContact" method="post">
+            <input type="hidden" id="token" name="token" value="<?= $token ?>">
             <p>Entreprise, comité d'entreprise (CE), collectivité locale ou école ? Vous souhaitez passer une commande ou un devis pour un évenement particulier ?</p>
             <p>Vous pouvez nous appeler au <a href="tel:+33512345678"><i class="fas fa-phone-square-alt"></i> 05 12 34 56 78</a>, ou nous contacter au travers du formulaire ci-dessous.</p>
             <div class="form-group col-md-8 mx-auto">

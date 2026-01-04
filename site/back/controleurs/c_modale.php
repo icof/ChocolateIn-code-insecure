@@ -10,6 +10,11 @@ include_once("$racine/modele/bd.utilisateur.inc.php");
 include_once("$racine/modele/bd.actualite.inc.php");
 include_once("$racine/modele/bd.message.inc.php");
 
+// génération d'un token pour la protection CSRF
+$token = md5(uniqid(rand(), true));
+$_SESSION['token'] = $token;
+$_SESSION['token_time'] = time();
+
 // recuperation des donnees GET, POST, et SESSION
 
 $nomVue = $_GET['nomVue'];
