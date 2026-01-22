@@ -33,7 +33,7 @@
 							<label class="control-label modal-label">Date de publication :</label>
 						</div>
 						<div class="col-sm-9">
-							<input type="date" class="form-control" name="datePublication" required style="margin-bottom:5%;">
+							<input type="date" class="form-control" name="datePublication" required value="<?php echo date('Y-m-d'); ?>" style="margin-bottom:5%;">
 						</div>
 					</div>
 					<div class="row form-group">

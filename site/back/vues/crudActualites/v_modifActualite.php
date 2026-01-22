@@ -31,7 +31,7 @@
 							<label class="control-label modal-label">date de publication :</label>
 						</div>
 						<div class="col-sm-9">
-							<input type="date" class="form-control" name="datePublication" value="<?php echo $data['datepublication']; ?>">
+							<input type="date" class="form-control" name="datePublication" value="<?php echo date('Y-m-d', strtotime($data['datepublication'])); ?>">
 						</div>
 					</div>
 					<div class="row form-group">
