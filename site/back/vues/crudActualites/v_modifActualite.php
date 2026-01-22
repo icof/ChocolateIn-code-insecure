@@ -36,7 +36,7 @@
 					</div>
 					<div class="row form-group">
 						<div class="col-sm-3">
-							<label class="control-label modal-label">en ligne : (0/1)</label>
+							<label class="control-label modal-label">en ligne :</label>
 						</div>
 						<div class="col-sm-9">
 							<input type="radio" id="0" name="actif" value="0" <?php if ($data['actif'] == 0){echo "checked";} ?>><label for="0">non</label>
