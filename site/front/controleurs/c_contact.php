@@ -22,11 +22,7 @@ $ville = filter_input(INPUT_POST, 'ville', FILTER_UNSAFE_RAW);
 $site = filter_input(INPUT_POST, 'site', FILTER_SANITIZE_URL);
 $message = filter_input(INPUT_POST, 'msg', FILTER_UNSAFE_RAW);
 //$message = $_POST['msg'];
-if (!empty($action)) {
-    if ($action === "envoiContact") {
-        $envoiReussi = $pdo->setLeContact($personne, $statut, $mail, $tel, $ville, $site, $message);
-    }  else {
-    $envoiReussi = false;
-    }
+if (!empty($action) && $action === "envoiContact") {
+    $envoiReussi = $pdo->setLeContact($personne, $statut, $mail, $tel, $ville, $site, $message);
 }
 include 'vues/v_contact.php';
