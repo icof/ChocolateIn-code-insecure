@@ -1,0 +1,17 @@
+version: 2
+updates:
+  # Indiquer à Dependabot de vérifier les mises à jour des dépendances Composer et NPM dans les répertoires spécifiés toutes les semaines.
+  # Chaque entrée sous "updates" définit un écosystème de paquets, un répertoire et un calendrier de vérification des mises à jour.
+  - package-ecosystem: "composer"
+    directory: "/site/back"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "npm"
+    directory: "/site/back"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "composer"
+    directory: "/site/front"
+    schedule:
+      interval: "weekly"
