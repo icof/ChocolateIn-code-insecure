@@ -1,3 +1,14 @@
 {
-    "editor.wordWrap": "on"
+  // Format et linting
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 4,
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+
+  // Apparence
+  "editor.wordWrap": "on",
+  "editor.minimap.enabled": true
 }
