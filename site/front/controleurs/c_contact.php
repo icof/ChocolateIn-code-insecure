@@ -25,6 +25,8 @@ $message = filter_input(INPUT_POST, 'msg', FILTER_UNSAFE_RAW);
 if (!empty($action)) {
     if ($action === "envoiContact") {
         $envoiReussi = $pdo->setLeContact($personne, $statut, $mail, $tel, $ville, $site, $message);
+    }  else {
+    $envoiReussi = false;
     }
 }
 include 'vues/v_contact.php';
