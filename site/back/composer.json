@@ -1,0 +1,9 @@
+{
+  "name": "chocolatein/back",
+  "description": "ChocolateIn Back Office Application",
+  "type": "project",
+  "require": {
+    "php": ">=8.0",
+    "ezyang/htmlpurifier": "4.15.0"
+  }
+}

@@ -10,6 +10,12 @@ Interface d'administration pour la gestion du site ChocolateIn.
 npm install
 ```
 
+### 2. Installer les dépendances php
+
+```bash
+composer install
+```
+
 ## 📁 Structure
 
 ```
@@ -20,16 +26,8 @@ back/
 ├── bibliotheques/       # Scripts personnalisés
 │   └── perso/
 ├── node_modules/        # Dépendances npm (ignoré par Git)
+├── vendor/        # Dépendances composer (ignoré par Git)
+├── composer.json         # Configuration composer
 ├── package.json         # Configuration npm
 └── index.php           # Point d'entrée
 ```
-
-## 🔧 Configuration
-
-Les dépendances sont chargées depuis `node_modules/` dans `vues/entete.html.php`
-
-## 📝 Notes
-
-- Le dossier `node_modules/` n'est pas versionné (voir `.gitignore`)
-- Toujours exécuter `npm install` après un `git clone`
-- Les bibliothèques personnalisées restent dans `bibliotheques/perso/`

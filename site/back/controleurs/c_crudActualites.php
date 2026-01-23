@@ -4,7 +4,7 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
 }
 
 include_once("$racine/modele/bd.actualite.inc.php");
-require_once "$racine/bibliotheques/htmlpurifier/HTMLPurifier.auto.php";
+require_once "$racine/vendor/htmlpurifier/library/HTMLPurifier.auto.php";
 $purifier = new HTMLPurifier();
 
 
