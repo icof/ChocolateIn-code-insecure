@@ -1,9 +1,5 @@
 {
   "name": "ChocolateIn PHP Dev",
-  "build": {
-    "dockerfile": "../Dockerfile",
-    "context": ".."
-  },
   "customizations": {
     "vscode": {
       "extensions": [
