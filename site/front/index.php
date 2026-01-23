@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $urlBack = "http://admin.chocolatein.fr";
 $urlBack = "../back";
 
@@ -30,8 +32,8 @@ switch ($uc) {
         include './controleurs/c_contact.php';
         break;
     case 'actualites':
-            include './controleurs/c_actualites.php';
-            break;
+        include './controleurs/c_actualites.php';
+        break;
     case 'cgu':
         include './controleurs/c_cgu.php';
         break;

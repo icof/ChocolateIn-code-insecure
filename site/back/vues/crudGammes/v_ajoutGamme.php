@@ -3,11 +3,14 @@
 	<div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			<center><h4 class="modal-title" id="myModalLabel">Ajouter une nouvelle gamme</h4></center>
+			<center>
+				<h4 class="modal-title" id="myModalLabel">Ajouter une nouvelle gamme</h4>
+			</center>
 		</div>
 		<div class="modal-body">
-		
+
 			<form method="POST" action="?action=CRUDGammes">
+				<input type="hidden" id="token" name="token" value="<?= $token ?>">
 				<div class="container-fluid">
 					<div class="row form-group">
 						<div class="col-sm-3">
