@@ -5,6 +5,9 @@ include_once "bd.utilisateur.inc.php";
 
 function login($pseudoconnect, $passconnect) {
     $util = getUtilisateurByMailU($pseudoconnect);
+    if (!$util) {
+        return;
+    }
     $mdpBD =  $util["motdepasse"]; 
     if($mdpBD == $passconnect){
         if (!isset($_SESSION)) {
