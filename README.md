@@ -1,6 +1,6 @@
 # ChocolateIn correction de code post-pentest
 Dépot de code de l'application présentant des vulnérabilités identifiées lors du pentest.
-> **Note :** Dernière MAJ 11/2024 
+> **Note :** Dernière MAJ 02/2026
 
 ## Configuration du site sur un serveur
 Ce projet nécessite les éléments suivants :
